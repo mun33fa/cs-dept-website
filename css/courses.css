@@ -5,6 +5,7 @@
   gap: 1.25rem;
   margin-bottom: 2rem;
 }
+
 .course-card {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -12,10 +13,12 @@
   padding: 1.5rem;
   transition: box-shadow var(--transition), transform var(--transition);
 }
+
 .course-card:hover {
   box-shadow: var(--shadow);
   transform: translateY(-3px);
 }
+
 .course-code {
   display: inline-block;
   background: var(--color-primary);
@@ -27,6 +30,7 @@
   margin-bottom: 0.75rem;
   letter-spacing: 0.04em;
 }
+
 .course-card h3 {
   font-family: var(--font-heading);
   font-size: 1.1rem;
@@ -35,17 +39,19 @@
 }
 .course-card p { color: var(--color-muted); font-size: 0.9rem; line-height: 1.6; }
 .course-meta { margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
 .badge {
   font-size: 0.75rem;
   font-weight: 600;
   padding: 0.2rem 0.6rem;
   border-radius: 20px;
-  background: rgba(0,80,158,0.08);
+  background: rgb(0 80 158 / 8%);
   color: var(--color-accent2);
-  border: 1px solid rgba(0,80,158,0.15);
+  border: 1px solid rgb(0 80 158 / 15%);
 }
-.badge-sem { background: rgba(232,160,32,0.1); color: #9a6800; border-color: rgba(232,160,32,0.25); }
-.badge-elective { background: rgba(0,153,102,0.08); color: #007a50; border-color: rgba(0,153,102,0.2); }
+.badge-sem { background: rgb(232 160 32 / 10%); color: #9a6800; border-color: rgb(232 160 32 / 25%); }
+.badge-elective { background: rgb(0 153 102 / 8%); color: #007a50; border-color: rgb(0 153 102 / 20%); }
+
 .semester-title {
   font-family: var(--font-heading);
   font-size: 1.4rem;

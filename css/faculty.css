@@ -8,11 +8,13 @@
   border-bottom: 2px solid var(--color-accent);
   display: inline-block;
 }
+
 .faculty-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 1.25rem;
 }
+
 .faculty-card {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -23,15 +25,18 @@
   align-items: flex-start;
   transition: box-shadow var(--transition), transform var(--transition);
 }
+
 .faculty-card:hover {
   box-shadow: var(--shadow);
   transform: translateY(-3px);
 }
+
 .faculty-card.featured {
   grid-column: 1 / -1;
   border-left: 4px solid var(--color-accent);
-  background: linear-gradient(to right, rgba(0,51,102,0.03), transparent);
+  background: linear-gradient(to right, rgb(0 51 102 / 3%), transparent);
 }
+
 .faculty-avatar {
   flex-shrink: 0;
   width: 56px;
@@ -47,12 +52,14 @@
   font-weight: 700;
   letter-spacing: 0.02em;
 }
+
 .faculty-card.featured .faculty-avatar {
   width: 68px;
   height: 68px;
   font-size: 1.3rem;
   background: linear-gradient(135deg, var(--color-primary), var(--color-accent2));
 }
+
 .faculty-designation {
   display: inline-block;
   font-size: 0.75rem;
@@ -62,6 +69,7 @@
   color: var(--color-accent);
   margin-bottom: 0.25rem;
 }
+
 .faculty-info h3 {
   font-family: var(--font-heading);
   font-size: 1.1rem;
@@ -70,6 +78,7 @@
 }
 .faculty-spec { color: var(--color-muted); font-size: 0.88rem; margin-bottom: 0.2rem; }
 .faculty-edu { color: var(--color-accent2); font-size: 0.82rem; margin-bottom: 0.5rem; font-style: italic; }
+
 .faculty-hours {
   display: flex;
   gap: 0.4rem;
