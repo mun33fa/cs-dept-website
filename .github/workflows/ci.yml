@@ -19,9 +19,7 @@ on:
       - main
 
 jobs:
-  # ─────────────────────────────────────────────────────────
   # JOB 1: HTML & CSS Linting
-  # ─────────────────────────────────────────────────────────
   lint:
     name: HTML & CSS Lint
     runs-on: ubuntu-latest
@@ -35,7 +33,6 @@ jobs:
         with:
           node-version: "20"
 
-      # HTML Validation using html-validate
       - name: Install html-validate
         run: npm install -g html-validate
 
@@ -45,7 +42,6 @@ jobs:
           html-validate index.html courses.html faculty.html admissions.html contact.html
           echo "HTML validation passed ✓"
 
-      # CSS Linting using stylelint
       - name: Install stylelint
         run: npm install -g stylelint stylelint-config-standard
 
@@ -59,13 +55,11 @@ jobs:
           stylelint "css/**/*.css" || true
           echo "CSS lint complete ✓"
 
-  # ─────────────────────────────────────────────────────────
   # JOB 2: Docker Image Build (no push — just validates build)
-  # ─────────────────────────────────────────────────────────
   docker-build:
     name: Docker Build Check
     runs-on: ubuntu-latest
-    needs: lint   # Only run if lint passes
+    needs: lint
 
     steps:
       - name: Checkout code

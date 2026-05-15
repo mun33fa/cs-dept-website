@@ -1,6 +1,7 @@
 # ─────────────────────────────────────────────────────────
 # .github/workflows/cd-production.yml
-# CD Pipeline — Deploy to PRODUCTION environment on Render
+# CD Pipeline — Build & Push Docker image to Docker Hub
+# Environment: Production
 # Triggers on: push to 'main' branch
 # ─────────────────────────────────────────────────────────
 
@@ -11,52 +12,40 @@ on:
     branches:
       - main
 
-environment: production
-
 jobs:
   deploy-production:
-    name: Deploy to Production (Render)
+    name: Build & Push to Docker Hub (Production)
     runs-on: ubuntu-latest
-    environment: production   # requires manual approval if protection rule set
+    environment: production
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # ── Step 1: Log in to Docker Hub ───────────────────
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      # ── Step 2: Build & Push Docker image ──────────────
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Build and push Docker image (latest / production tag)
+      - name: Build and push Docker image (production + latest tags)
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/cs-dept-website:latest
             ${{ secrets.DOCKERHUB_USERNAME }}/cs-dept-website:production
+            ${{ secrets.DOCKERHUB_USERNAME }}/cs-dept-website:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
-
-      # ── Step 3: Trigger Render Deploy Hook ─────────────
-      - name: Trigger Render deploy (Production)
-        run: |
-          echo "Triggering Render deployment for Production environment..."
-          curl -s -o /dev/null -w "HTTP Status: %{http_code}" \
-            "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
-          echo ""
-          echo "Deploy hook triggered ✓"
 
       - name: Deployment complete
         run: |
           echo "=========================================="
-          echo "  Deployed to PRODUCTION environment"
-          echo "  URL: ${{ secrets.RENDER_SITE_URL }}"
+          echo "  Image pushed to Docker Hub"
+          echo "  Tags: production, latest"
+          echo "  Image: ${{ secrets.DOCKERHUB_USERNAME }}/cs-dept-website:production"
           echo "=========================================="

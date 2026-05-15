@@ -1,6 +1,7 @@
 # ─────────────────────────────────────────────────────────
 # .github/workflows/cd-development.yml
-# CD Pipeline — Deploy to DEVELOPMENT environment on Render
+# CD Pipeline — Build & Push Docker image to Docker Hub
+# Environment: Development
 # Triggers on: push to 'develop' branch
 # ─────────────────────────────────────────────────────────
 
@@ -11,29 +12,24 @@ on:
     branches:
       - develop
 
-# Use the 'development' GitHub Environment for secrets
-environment: development
-
 jobs:
   deploy-development:
-    name: Deploy to Development (Render)
+    name: Build & Push to Docker Hub (Development)
     runs-on: ubuntu-latest
-    environment: development   # links this job to the GitHub Environment
+    environment: development
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # ── Step 1: Log in to Docker Hub ───────────────────
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-      # ── Step 2: Build & Push Docker image ──────────────
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
 
       - name: Build and push Docker image (development tag)
         uses: docker/build-push-action@v5
@@ -44,18 +40,10 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      # ── Step 3: Trigger Render Deploy Hook ─────────────
-      - name: Trigger Render deploy (Development)
-        run: |
-          echo "Triggering Render deployment for Development environment..."
-          curl -s -o /dev/null -w "HTTP Status: %{http_code}" \
-            "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
-          echo ""
-          echo "Deploy hook triggered ✓"
-
       - name: Deployment complete
         run: |
           echo "=========================================="
-          echo "  Deployed to DEVELOPMENT environment"
-          echo "  URL: ${{ secrets.RENDER_SITE_URL }}"
+          echo "  Image pushed to Docker Hub"
+          echo "  Tag: development"
+          echo "  Image: ${{ secrets.DOCKERHUB_USERNAME }}/cs-dept-website:development"
           echo "=========================================="
