@@ -1,215 +1,82 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admissions | CS Department</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/admissions.css" />
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/admissions.css">
 </head>
 <body>
 
-  <nav class="navbar">
-    <div class="nav-brand">
-      <span class="nav-logo">CS</span>
-      <span class="nav-title">Department of Computer Science</span>
-    </div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="courses.html">Courses</a></li>
-      <li><a href="faculty.html">Faculty</a></li>
-      <li><a href="admissions.html" class="active">Admissions</a></li>
-      <li><a href="contact.html">Contact</a></li>
+<nav class="navbar" aria-label="Main navigation">
+  <div class="nav-brand">
+    <span class="nav-logo">CS</span>
+    <span class="nav-title">Department of Computer Science</span>
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="courses.html">Courses</a></li>
+    <li><a href="faculty.html">Faculty</a></li>
+    <li><a href="admissions.html" class="active">Admissions</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+
+  <button type="button" class="nav-toggle" aria-label="Toggle navigation">
+    &#9776;
+  </button>
+</nav>
+
+<section class="admissions-section">
+  <h1>Admissions Open</h1>
+
+  <p>
+    Applications for Fall 2025 are now open.
+    Apply before June 30.
+  </p>
+
+  <div class="requirements-card">
+    <h2>Eligibility Criteria</h2>
+
+    <ul>
+      <li>Minimum 50% marks in Intermediate or equivalent</li>
+      <li>Pass COMSATS admission test</li>
+      <li>Submit all required documents</li>
     </ul>
-    <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
-  </nav>
+  </div>
 
-  <header class="page-hero">
-    <div class="container">
-      <div class="section-badge">Join Us</div>
-      <h1>Admissions</h1>
-      <p>Start your journey in Computer Science. We welcome talented and motivated students from all backgrounds.</p>
+  <div class="deadline-card">
+    <h2>Important Dates</h2>
+
+    <ul>
+      <li>Applications Open: May 10, 2025</li>
+      <li>Last Date to Apply: June 30, 2025</li>
+      <li>Entry Test: July 10, 2025</li>
+    </ul>
+  </div>
+</section>
+
+<footer class="footer" aria-label="Footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="nav-logo">CS</span>
+      <span>
+        Department of Computer Science<br>
+        COMSATS University Islamabad, Lahore Campus
+      </span>
     </div>
-  </header>
 
-  <section class="section">
-    <div class="container">
-
-      <!-- DEGREE PROGRAMS -->
-      <div class="section-badge">Programs Offered</div>
-      <h2 class="section-title">Degree Programs</h2>
-      <div class="programs-grid">
-        <div class="program-card">
-          <div class="program-icon">&#127979;</div>
-          <h3>BSCS</h3>
-          <p class="program-full">Bachelor of Science in Computer Science</p>
-          <ul>
-            <li>Duration: 4 Years (8 Semesters)</li>
-            <li>Credit Hours: 130+</li>
-            <li>Mode: On-Campus</li>
-            <li>Intake: Fall &amp; Spring</li>
-          </ul>
-          <span class="program-badge">Undergraduate</span>
-        </div>
-        <div class="program-card">
-          <div class="program-icon">&#127891;</div>
-          <h3>MSCS</h3>
-          <p class="program-full">Master of Science in Computer Science</p>
-          <ul>
-            <li>Duration: 2 Years (4 Semesters)</li>
-            <li>Credit Hours: 30</li>
-            <li>Mode: On-Campus / Evening</li>
-            <li>Intake: Fall</li>
-          </ul>
-          <span class="program-badge">Postgraduate</span>
-        </div>
-        <div class="program-card">
-          <div class="program-icon">&#128218;</div>
-          <h3>PhD CS</h3>
-          <p class="program-full">Doctor of Philosophy in Computer Science</p>
-          <ul>
-            <li>Duration: 3–5 Years</li>
-            <li>Credit Hours: 18 + Dissertation</li>
-            <li>Mode: Research-Based</li>
-            <li>Intake: Fall</li>
-          </ul>
-          <span class="program-badge phd">Doctoral</span>
-        </div>
-      </div>
-
-      <!-- ADMISSION CRITERIA -->
-      <div class="section-badge" style="margin-top:3rem;">Eligibility</div>
-      <h2 class="section-title">Admission Criteria</h2>
-      <div class="criteria-table-wrap">
-        <table class="criteria-table">
-          <thead>
-            <tr>
-              <th>Program</th>
-              <th>Minimum Qualification</th>
-              <th>Minimum Marks</th>
-              <th>Entry Test</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>BSCS</strong></td>
-              <td>FSc (Pre-Engineering / ICS) or A-Levels</td>
-              <td>50% in Intermediate</td>
-              <td>NTS / CUI Entry Test</td>
-            </tr>
-            <tr>
-              <td><strong>MSCS</strong></td>
-              <td>BS Computer Science or equivalent (16 years)</td>
-              <td>2.0 CGPA or 45%</td>
-              <td>GAT General / CUI Test</td>
-            </tr>
-            <tr>
-              <td><strong>PhD CS</strong></td>
-              <td>MS/MPhil Computer Science or equivalent</td>
-              <td>3.0 CGPA or 60%</td>
-              <td>GAT Subject + Interview</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- APPLICATION STEPS -->
-      <div class="section-badge" style="margin-top:3rem;">How to Apply</div>
-      <h2 class="section-title">Application Steps</h2>
-      <div class="steps-list">
-        <div class="step">
-          <div class="step-num">01</div>
-          <div class="step-content">
-            <h3>Visit Admissions Portal</h3>
-            <p>Go to <strong>admissions.comsats.edu.pk</strong> and create a new applicant account using your CNIC and valid email address.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">02</div>
-          <div class="step-content">
-            <h3>Fill Online Application Form</h3>
-            <p>Complete the online application form with personal information, academic history, and preferred program of study.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">03</div>
-          <div class="step-content">
-            <h3>Upload Required Documents</h3>
-            <p>Upload scanned copies of Matriculation certificate, Intermediate/degree transcripts, CNIC/B-Form, and passport-size photograph.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">04</div>
-          <div class="step-content">
-            <h3>Pay Application Fee</h3>
-            <p>Pay the non-refundable application processing fee of PKR 1,500 via bank challan or online payment gateway.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">05</div>
-          <div class="step-content">
-            <h3>Appear in Entry Test</h3>
-            <p>Sit for the COMSATS Entry Test or submit valid NTS/GAT scores as required for your program.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">06</div>
-          <div class="step-content">
-            <h3>Merit List &amp; Enrollment</h3>
-            <p>Check the merit list on the admissions portal. If selected, complete fee payment and enrollment within the specified deadline.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- DEADLINES -->
-      <div class="section-badge" style="margin-top:3rem;">Important Dates</div>
-      <h2 class="section-title">Deadlines — Fall 2025</h2>
-      <div class="deadlines-grid">
-        <div class="deadline-card">
-          <span class="deadline-date">June 1, 2025</span>
-          <span class="deadline-event">Admissions Portal Opens</span>
-        </div>
-        <div class="deadline-card">
-          <span class="deadline-date">June 30, 2025</span>
-          <span class="deadline-event">Application Submission Deadline</span>
-        </div>
-        <div class="deadline-card">
-          <span class="deadline-date">July 10, 2025</span>
-          <span class="deadline-event">Entry Test / GAT Scores Submission</span>
-        </div>
-        <div class="deadline-card">
-          <span class="deadline-date">July 25, 2025</span>
-          <span class="deadline-event">Merit List Publication</span>
-        </div>
-        <div class="deadline-card">
-          <span class="deadline-date">Aug 5, 2025</span>
-          <span class="deadline-event">Fee Payment &amp; Enrollment</span>
-        </div>
-        <div class="deadline-card">
-          <span class="deadline-date">Sept 1, 2025</span>
-          <span class="deadline-event">Semester Commencement</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <span class="nav-logo">CS</span>
-        <span>Department of Computer Science<br/>COMSATS University Islamabad, Lahore Campus</span>
-      </div>
-      <nav class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="courses.html">Courses</a>
-        <a href="faculty.html">Faculty</a>
-        <a href="admissions.html">Admissions</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <p class="footer-copy">&copy; 2025 COMSATS CS Department. All rights reserved.</p>
-    </div>
-  </footer>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="index.html">Home</a>
+      <a href="courses.html">Courses</a>
+      <a href="faculty.html">Faculty</a>
+      <a href="admissions.html">Admissions</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</footer>
 
 </body>
 </html>
