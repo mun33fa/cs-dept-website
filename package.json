@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "stylelint": "^17.11.1",
+    "stylelint-config-standard": "^40.0.0",
+    "html-validate": "^11.1.0"
+  },
+  "scripts": {
+    "lint:html": "html-validate \"*.html\"",
+    "lint:css": "stylelint --config .stylelintrc.json \"css/*.css\"",
+    "lint": "npm run lint:html && npm run lint:css"
+  }
+}
